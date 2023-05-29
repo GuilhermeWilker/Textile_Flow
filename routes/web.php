@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IncomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/income', [IncomeController::class, 'index'])->name('income');
