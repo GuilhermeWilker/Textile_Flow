@@ -21,6 +21,30 @@ body {
     height: 89px;
     background-color: #28282e;
     left: -12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 50px;
+}
+
+.navbar_link {
+    width: 85px;
+    height: 85px;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.4s ease-in-out;
+}
+
+.navbar_link:hover {
+    border-radius: 5%;
+    background-color: #35353b;
 }
 
 a {
@@ -40,7 +64,10 @@ a {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background-color: #28282e;
+    background-image: url("/images/logo_empresa.png");
+
+    background-position: center;
+    background-size: cover;
 }
 
 .container {
@@ -67,7 +94,7 @@ a {
 
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    /* justify-content: space-between; */
 
     border-radius: 5px;
     color: white;
@@ -77,18 +104,38 @@ a {
     text-decoration: none;
 }
 
+.link_button {
+    justify-content: space-between;
+    transition: 0.3s ease-in-out;
+}
+
+.link_button:hover {
+    background-color: #20203f;
+}
+
+.link_button .img_box {
+    background: none;
+}
+
 .action_box h2 {
     font-size: 16px;
     padding-inline: 20px;
 }
 
 .img_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-inline: 10px 20px;
     content: "";
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background-color: #3b3b5c;
+    background-color: #838395;
+}
+
+.img_box img {
+    object-fit: contain;
 }
 
 /* --------------- */
@@ -174,7 +221,7 @@ a {
 }
 
 .income_form button:hover {
-    background-color: #373741;
+    background-color: #20203f;
 }
 
 .item_form-price {

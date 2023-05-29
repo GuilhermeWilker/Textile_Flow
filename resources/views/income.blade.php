@@ -2,9 +2,11 @@
 
 @section('content')
     <section class="actions_container">
-        <div class="action_box">
+        <div class="action_box link_button">
             <h2>Checar ganhos e despesas</h2>
-            <div class="img_box"></div>
+            <div class="img_box">
+                <img src="/images/income_pic.png" alt="income">
+            </div>
         </div>
     </section>
 

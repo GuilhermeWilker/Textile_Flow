@@ -12,7 +12,9 @@
 
     <main class="container">
         <header class="header">
-            <div class="img"></div>
+            <div class="img">
+
+            </div>
             <h3>Calina confecções</h3>
         </header>
 
@@ -20,7 +22,15 @@
 
 
         <div class="navbar">
-            aaaa
+            <a class="navbar_link" href="/">
+                <img src="/images/home.png">
+                Home
+            </a>
+
+            <a class="navbar_link" href="">
+                <img src="/images/stock.png">
+                Estoque
+            </a>
         </div>
     </main>
 </body>
