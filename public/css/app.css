@@ -1,5 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.alert_success {
+    padding: 15px 46px;
+    background-color: #354034;
+    border-radius: 5px;
+    border: 1px solid #2f6610;
+    margin-block: 12px;
+}
+
+.alert_error {
+    padding: 15px 46px;
+    background-color: #5e3b3b;
+    border-radius: 5px;
+    border: 1px solid #661010;
+    margin-block: 12px;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -11,6 +39,23 @@ body {
     background-color: #131317;
     font-family: "Inter", sans-serif;
     color: white;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock .hr,
+.clock .min,
+.clock .seg {
+    font-size: 40px;
+}
+
+.clock span {
+    color: #0179e9;
+    font-weight: 600;
 }
 
 .navbar {

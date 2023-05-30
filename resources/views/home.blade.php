@@ -3,8 +3,11 @@
 @section('content')
     <section class="actions_container">
 
-        <div class="action_box link_button">
-            <h2>12:53:25seg</h2>
+        <div class="action_box clock">
+            <h2 class="hr">12</h2> <span>:</span>
+            <h2 class="min">53</h2> <span>:</span>
+            <h2 class="seg">25</h2>
+
         </div>
 
         <div class="action_box link_button">

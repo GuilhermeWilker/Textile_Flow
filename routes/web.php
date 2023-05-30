@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/income', [IncomeController::class, 'index'])->name('income');
+
+Route::post('/income', [IncomeController::class, 'store'])->name('income.store');

@@ -23,12 +23,36 @@
 
     </section>
 
-    <form action="" class="income_form">
+    @if (session()->has('success'))
+        <p class="alert_success">
+            {{ session()->get('success') }}
+        </p>
+    @elseif(session()->has('error'))
+        <p class="alert_error">
+            {{ session()->get('error') }}
+        </p>
+    @endif
+
+    <form action="{{ route('income.store') }}" method="post" class="income_form">
+        @csrf
+
         <legend>Adicionar</legend>
 
         <div class="income_form-group">
-            <input type="number" name="item-price" class="item_form-price" placeholder="R$ 15">
-            <input type="text" name="item-name" class="item_form-name" placeholder="Fios bege">
+            <div>
+                <small><label for="itemQnt">Quantidade</label></small>
+                <input type="number" name="itemQnt" class="item_form-price" placeholder="3 qnt">
+            </div>
+
+            <div>
+                <small><label for="itemName">Nome produto</label></small>
+                <input type="text" name="itemName" class="item_form-name" placeholder="Fios bege">
+            </div>
+
+            <div>
+                <small><label for="itemPrice">Preço</label></small>
+                <input type="number" name="itemPrice" class="item_form-price" placeholder="R$ 15">
+            </div>
         </div>
 
 
@@ -38,67 +62,24 @@
     <section class="income_list">
         <h3>Histórico de transações</h3>
 
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
 
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
+        <ul>
+            @foreach ($incomes as $income)
+                <li class="income_item">
+                    <p class="income_item-name">
+                        {{ $income->itemName }}
+                    </p>
+                    <span class="income_item-qnt">
+                        {{ $income->itemQnt }} qnt
+                    </span>
 
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
+                    <p class="income_item-price">
+                        R$ {{ $income->itemPrice }} -
+                    </p>
+                </li>
+            @endforeach
+        </ul>
 
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
 
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
-
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
-
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
-
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
-
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
-
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
-
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
-
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
-
-        <div class="income_item">
-            <p class="income_item-name">
-                Fios vermelhos
-            </p>
-            <span class="income_item-qnt">5 qnt</span>
-
-            <p class="income_item-price">R$ 32,00 -</p>
-        </div>
     </section>
 @endsection
