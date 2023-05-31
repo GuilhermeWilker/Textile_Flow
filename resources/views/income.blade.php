@@ -13,15 +13,15 @@
     <section class="income_container">
         <div class="income_display">
             <h6 class="income_title-gain">Ganhos</h6>
-            <h3>R$ 1200,00 +</h3>
+            <h3>R$ {{ $totalGains }}</h3>
         </div>
 
         <div class="income_display">
             <h6 class="income_title-loss">Gastos</h6>
-            <h3>R$ 200,00 -</h3>
+            <h3>R$ {{ $totalExpenses }}</h3>
         </div>
-
     </section>
+
 
     @if (session()->has('success'))
         <p class="alert_success">
@@ -56,7 +56,22 @@
         </div>
 
 
-        <button type="submit">Enviar</button>
+        <div class="income_form-group">
+
+            <select name="itemType" class="item_form-type">
+                <option value="none">Selecione o tipo de transação</option>
+                <option value="expense">Despesa</option>
+                <option value="gain">Ganho</option>
+            </select>
+
+
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+
+        </div>
+
+
     </form>
 
     <section class="income_list">
@@ -74,7 +89,7 @@
                     </span>
 
                     <p class="income_item-price">
-                        R$ {{ $income->itemPrice }} -
+                        R$ {{ $income->itemPrice }}
                     </p>
                 </li>
             @endforeach

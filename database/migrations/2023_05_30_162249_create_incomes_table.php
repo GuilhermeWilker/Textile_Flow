@@ -15,7 +15,8 @@ return new class() extends Migration {
             $table->integer('itemQnt');
             $table->string('itemName');
             $table->integer('itemPrice');
-            $table->rememberToken();
+            $table->decimal('totalGains', 10, 2)->default(0.00);
+            $table->decimal('totalExpenses', 10, 2)->default(0.00);
             $table->timestamps();
         });
     }

@@ -149,6 +149,23 @@ a {
     text-decoration: none;
 }
 
+.action_box-item {
+    padding: 5px 50px;
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 5px;
+    color: white;
+    background-color: #28282e;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .link_button {
     justify-content: space-between;
     transition: 0.3s ease-in-out;
@@ -252,8 +269,21 @@ a {
     gap: 15px;
 }
 
+.item_form-type {
+    width: 90%;
+    padding: 8px;
+
+    cursor: pointer;
+    color: white;
+
+    background-color: #28282e;
+    padding: 12px 16px;
+    border: 1px solid #838395;
+
+    border-radius: 4px;
+}
+
 .income_form button {
-    margin-inline-start: 80%;
     cursor: pointer;
     color: white;
 
@@ -290,13 +320,10 @@ a {
 }
 
 .income_item {
-    margin-block: 14px;
-    width: 100%;
+    margin: 14px 0;
     padding: 15px 20px;
-
     border-radius: 5px;
     background-color: #28282e;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -308,10 +335,14 @@ a {
 }
 
 .income_item-name {
+    flex: 1;
     font-size: 14px;
 }
 
 .income_item-qnt {
+    width: 80px;
+    text-align: center;
+
     font-size: 14px;
     font-weight: 600;
 
@@ -319,6 +350,9 @@ a {
 }
 
 .income_item-price {
+    width: 120px;
+    text-align: center;
+
     font-weight: 700;
     color: #838395;
 }

@@ -25,6 +25,7 @@ class IncomeRequest extends FormRequest
             'itemQnt' => 'required',
             'itemName' => 'required',
             'itemPrice' => 'required',
+            'itemType' => 'required',
         ];
     }
 }

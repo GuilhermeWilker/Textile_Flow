@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IncomeRequest;
 use App\Models\Income;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class IncomeController extends Controller
@@ -14,12 +15,19 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $incomes = Income::all();
+        $totalGains =
+        number_format(DB::table('incomes')->where('itemPrice', '>', 0)->sum('itemPrice'), 2, ',', '.');
 
+        $totalExpenses =
+        number_format(DB::table('incomes')->where('itemPrice', '<', 0)->sum('itemPrice'), 2, ',', '.');
+
+        // Passando os totais atualizados para a view
         return view('income', [
             'title' => 'Rentabilidade',
-            'incomes' => $incomes,
-            ]);
+            'incomes' => Income::orderByDesc('id')->get(),
+            'totalGains' => $totalGains,
+            'totalExpenses' => $totalExpenses,
+        ]);
     }
 
     /**
