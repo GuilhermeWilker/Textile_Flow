@@ -41,7 +41,7 @@
         <div class="income_form-group">
             <div>
                 <small><label for="itemQnt">Quantidade</label></small>
-                <input type="number" name="itemQnt" class="item_form-price" placeholder="3 qnt">
+                <input type="number" id="itemQnt" name="itemQnt" class="item_form-price" placeholder="3 qnt" />
             </div>
 
             <div>
@@ -51,7 +51,7 @@
 
             <div>
                 <small><label for="itemPrice">Preço</label></small>
-                <input type="number" name="itemPrice" class="item_form-price" placeholder="R$ 15">
+                <input type="number" id="itemPrice" name="itemPrice" class="item_form-price" placeholder="R$ 15">
             </div>
         </div>
 
@@ -92,4 +92,8 @@
             @endforeach
         </ul>
     </section>
+@endsection
+
+@section('script')
+    <script src="/js/multiplicador.js" defer></script>
 @endsection

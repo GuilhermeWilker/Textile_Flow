@@ -1,3 +1,4 @@
+// Relógio
 const hr = document.querySelector(".hr");
 const min = document.querySelector(".min");
 const seg = document.querySelector(".seg");
@@ -15,3 +16,5 @@ const getRealTimeOfTheDay = setInterval(() => {
     min.textContent = minutes;
     seg.textContent = seconds;
 }, 1);
+
+// ---
