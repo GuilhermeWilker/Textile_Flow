@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="/css/app.css" />
-    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
@@ -28,12 +27,14 @@
                 Home
             </a>
 
-            <a class="navbar_link" href="">
+            <a class="navbar_link" href="{{ route('stock') }}">
                 <img src="/images/stock.png">
                 Estoque
             </a>
         </div>
     </main>
+
+    @yield('script')
 </body>
 
 </html>

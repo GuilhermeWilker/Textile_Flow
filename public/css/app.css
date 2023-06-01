@@ -59,13 +59,13 @@ body {
 }
 
 .navbar {
-    position: relative;
-    bottom: -12px;
+    position: absolute;
+    bottom: 0;
     content: "";
-    width: 106%;
+    width: 100%;
     height: 89px;
     background-color: #28282e;
-    left: -12px;
+    left: 0;
 
     display: flex;
     align-items: center;
@@ -116,8 +116,10 @@ a {
 }
 
 .container {
+    position: relative;
     margin: 0 auto;
     max-width: 400px;
+    min-height: 810px;
     padding: 12px;
     border: 1px solid rgb(255, 255, 255);
 }
@@ -205,6 +207,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    margin-block: 30px;
 }
 
 .title {
@@ -355,4 +359,42 @@ a {
 
     font-weight: 700;
     color: #838395;
+}
+
+/* ------------------- */
+.form_stock {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.form_stock button {
+    color: white;
+    border: 1px solid #838395;
+    background-color: #28282e;
+    border-radius: 4px;
+    padding: 10px;
+
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.form_stock button:hover {
+    background-color: #3f3f46;
+}
+
+.search_bar {
+    border: 1px solid #838395;
+    color: white;
+
+    background-color: #28282e;
+    border-radius: 4px;
+    padding: 10px;
+
+    width: 100%;
+}
+
+.search_bar:focus {
+    border: none;
 }

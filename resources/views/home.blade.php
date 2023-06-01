@@ -30,7 +30,7 @@
 
         <header class="stock_header">
             <h2 class="title">Estoque de itens</h2>
-            <a href="">Adicionar item</a>
+            <a href="{{ route('stock') }}">Ver estoque completo</a>
         </header>
 
 
@@ -66,4 +66,8 @@
 
 
     </section>
+@endsection
+
+@section('script')
+    <script src="/js/script.js" defer></script>
 @endsection

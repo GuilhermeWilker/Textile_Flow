@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/income', [IncomeController::class, 'index'])->name('income');
 
 Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+
+Route::get('/stock', [StockController::class, 'index'])->name('stock');

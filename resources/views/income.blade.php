@@ -1,16 +1,16 @@
 @extends('master')
 
 @section('content')
-    <section class="actions_container">
+    <aside class="actions_container">
         <div class="action_box link_button">
             <h2>Checar ganhos e despesas</h2>
             <div class="img_box">
                 <img src="/images/income_pic.png" alt="income">
             </div>
         </div>
-    </section>
+    </aside>
 
-    <section class="income_container">
+    <article class="income_container">
         <div class="income_display">
             <h6 class="income_title-gain">Ganhos</h6>
             <h3>R$ {{ $totalGains }}</h3>
@@ -20,8 +20,7 @@
             <h6 class="income_title-loss">Gastos</h6>
             <h3>R$ {{ $totalExpenses }}</h3>
         </div>
-    </section>
-
+    </article>
 
     @if (session()->has('success'))
         <p class="alert_success">
@@ -33,6 +32,7 @@
         </p>
     @endif
 
+    {{-- Formulário de Rentabilidade --}}
     <form action="{{ route('income.store') }}" method="post" class="income_form">
         @csrf
 
@@ -57,26 +57,22 @@
 
 
         <div class="income_form-group">
-
             <select name="itemType" class="item_form-type">
                 <option value="none">Selecione o tipo de transação</option>
-                <option value="expense">Despesa</option>
                 <option value="gain">Ganho</option>
+                <option value="expense">Despesa</option>
+                <option value="expense">Funcionário</option>
             </select>
-
 
             <div>
                 <button type="submit">Enviar</button>
             </div>
-
         </div>
-
-
     </form>
 
+    {{-- Lista de transações --}}
     <section class="income_list">
         <h3>Histórico de transações</h3>
-
 
         <ul>
             @foreach ($incomes as $income)
@@ -84,6 +80,7 @@
                     <p class="income_item-name">
                         {{ $income->itemName }}
                     </p>
+
                     <span class="income_item-qnt">
                         {{ $income->itemQnt }} qnt
                     </span>
@@ -94,7 +91,5 @@
                 </li>
             @endforeach
         </ul>
-
-
     </section>
 @endsection

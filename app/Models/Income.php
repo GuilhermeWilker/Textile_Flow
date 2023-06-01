@@ -15,9 +15,8 @@ class Income extends Model
         $this->itemName = $data['itemName'];
         $this->itemQnt = $data['itemQnt'];
 
-        // Verificar o tipo de item (despesa ou ganho)
         if ($data['itemType'] === 'expense') {
-            $this->itemPrice = -$this->itemPrice; // Definir valor como negativo para despesas
+            $this->itemPrice = -$this->itemPrice; // Valor negativo
         }
 
         return $this->save();
