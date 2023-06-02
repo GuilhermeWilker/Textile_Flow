@@ -35,8 +35,8 @@
 
 
         <article class="actions_container">
-            {{-- @foreach ($items as $item)
-                <div class="action_box-item">
+            @foreach ($items as $item)
+                <div class="action_box-item stock">
                     <p>
                         {{ $item->itemName }}
                     </p>
@@ -45,23 +45,7 @@
                         {{ $item->itemQnt }} qnt
                     </span>
                 </div>
-            @endforeach --}}
-
-
-            <div class="action_box">
-                <div class="img_box"></div>
-                <p>Fios vermelhos</p>
-            </div>
-
-            <div class="action_box">
-                <div class="img_box"></div>
-                <p>Fios Amarelos</p>
-            </div>
-
-            <div class="action_box">
-                <div class="img_box"></div>
-                <p>Fios vermelhos</p>
-            </div>
+            @endforeach
         </article>
 
 

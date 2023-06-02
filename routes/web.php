@@ -23,3 +23,5 @@ Route::get('/income', [IncomeController::class, 'index'])->name('income');
 Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
 
 Route::get('/stock', [StockController::class, 'index'])->name('stock');
+
+Route::put('/stock/{id}', [StockController::class, 'update'])->name('stock.update');

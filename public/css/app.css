@@ -362,6 +362,10 @@ a {
 }
 
 /* ------------------- */
+.stock {
+    cursor: default;
+}
+
 .form_stock {
     display: flex;
     align-items: center;
@@ -382,6 +386,30 @@ a {
 
 .form_stock button:hover {
     background-color: #3f3f46;
+}
+
+.stock_button-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stock_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+
+    color: #0179e9;
+    border: 1px solid #838395;
+    background-color: #39393f;
+    border-radius: 50%;
+
+    cursor: pointer;
 }
 
 .search_bar {

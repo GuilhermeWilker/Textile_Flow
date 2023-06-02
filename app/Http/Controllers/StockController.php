@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Income;
+use App\Models\Income as Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StockController extends Controller
 {
@@ -14,7 +15,7 @@ class StockController extends Controller
     {
         return view('stock', [
             'title' => 'Estoque',
-            'items' => Income::orderByDesc('id')->get(),
+            'items' => Item::orderByDesc('id')->get(),
             ]);
     }
 
@@ -51,6 +52,27 @@ class StockController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $item = Item::findOrFail($id);
+
+        if ($request->input('action') === 'decrease') {
+            --$item->itemQnt;
+        } elseif ($request->input('action') === 'increase') {
+            ++$item->itemQnt;
+        }
+
+        $lowStock = $item->itemQnt <= 2;
+
+        if ($lowStock) {
+            Session::flash('error', 'Estoque baixo');
+        }
+
+        $item->save();
+
+        if ($item->itemQnt === 0) {
+            $item->delete();
+        }
+
+        return back();
     }
 
     /**

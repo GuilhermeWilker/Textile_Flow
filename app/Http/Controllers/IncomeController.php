@@ -12,8 +12,11 @@ class IncomeController extends Controller
 {
     private function calculateTotalIncome($totalGains, $totalExpenses)
     {
-        $totalGains = (float) str_replace(',', '.', str_replace('.', '', $totalGains));
-        $totalExpenses = (float) str_replace(',', '.', str_replace('.', '', $totalExpenses));
+        $totalGains =
+        (float) str_replace(',', '.', str_replace('.', '', $totalGains));
+
+        $totalExpenses =
+        (float) str_replace(',', '.', str_replace('.', '', $totalExpenses));
 
         return number_format($totalGains + $totalExpenses, 2, ',', '.');
     }
@@ -29,7 +32,8 @@ class IncomeController extends Controller
         $totalExpenses =
         number_format(DB::table('incomes')->where('itemPrice', '<', 0)->sum('itemPrice'), 2, ',', '.');
 
-        $totalIncome = $this->calculateTotalIncome($totalGains, $totalExpenses);
+        $totalIncome =
+        $this->calculateTotalIncome($totalGains, $totalExpenses);
 
         // Passando os totais atualizados para a view
         return view('income', [

@@ -11,9 +11,16 @@
         <button type="submit">Pesquisar</button>
     </form>
 
+
+    @if (session()->has('error'))
+        <p class="alert_error">
+            {{ session()->get('error') }}
+        </p>
+    @endif
+
     <article class="actions_container">
         @foreach ($items as $item)
-            <div class="action_box-item">
+            <div class="action_box-item stock">
                 <p>
                     {{ $item->itemName }}
                 </p>
@@ -21,6 +28,26 @@
                 <span class="income_item-qnt">
                     {{ $item->itemQnt }} qnt
                 </span>
+
+                <div class="stock_button-container">
+                    <form action="{{ route('stock.update', $item->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="itemId" value="{{ $item->id }}">
+                        <button type="submit" name="action" value="decrease" class="stock_button">
+                            &minus;
+                        </button>
+                    </form>
+
+                    <form action="{{ route('stock.update', $item->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="itemId" value="{{ $item->id }}">
+                        <button type="submit" name="action" value="increase" class="stock_button">
+                            &plus;
+                        </button>
+                    </form>
+                </div>
             </div>
         @endforeach
 
