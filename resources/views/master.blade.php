@@ -22,9 +22,15 @@
 
 
         <div class="navbar">
+
             <a class="navbar_link" href="/">
                 <img src="/images/home.png">
                 Home
+            </a>
+
+            <a class="navbar_link" href="{{ route('income') }}">
+                <img src="/images/income.png">
+                Renda
             </a>
 
             <a class="navbar_link" href="{{ route('stock') }}">
