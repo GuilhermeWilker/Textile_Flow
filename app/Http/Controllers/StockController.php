@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Session;
 
 class StockController extends Controller
 {
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('searchBard');
+
+        $items = Item::where('itemName', 'LIKE', '%'.$searchQuery.'%')->get();
+    }
+
     /**
      * Display a listing of the resource.
      */

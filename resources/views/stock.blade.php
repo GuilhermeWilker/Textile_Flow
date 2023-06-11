@@ -6,7 +6,7 @@
         <a href="{{ route('income') }}">Adicionar novo item</a>
     </header>
 
-    <form action="" class="form_stock">
+    <form action="{{ route('items.search') }}" class="form_stock">
         <input type="search" name="searchBar" class="search_bar" placeholder="Pesquise seu item aqui" />
         <button type="submit">Pesquisar</button>
     </form>

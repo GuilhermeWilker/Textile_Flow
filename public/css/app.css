@@ -35,6 +35,7 @@ input[type="number"] {
 }
 
 body {
+    height: 90%;
     position: relative;
     background-color: #131317;
     font-family: "Inter", sans-serif;
@@ -59,19 +60,17 @@ body {
 }
 
 .navbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    content: "";
+    left: 0;
     width: 100%;
     height: 89px;
     background-color: #28282e;
-    left: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 20px 50px;
+    z-index: 9999; /* Para garantir que a navbar esteja sempre no topo */
 }
 
 .navbar_link {
@@ -119,9 +118,11 @@ a {
     position: relative;
     margin: 0 auto;
     max-width: 400px;
-    min-height: 810px;
+    min-height: 100%;
     padding: 12px;
-    border: 1px solid rgb(255, 255, 255);
+
+    border-radius: 15px 15px 0 0;
+    /* border: 1px solid rgb(255, 255, 255); */
 }
 
 /* ------------------ */
@@ -336,6 +337,8 @@ a {
 .income_list {
     height: 185px;
     overflow-y: auto;
+
+    padding-bottom: 120px;
 }
 
 .income_item-name {
@@ -362,6 +365,13 @@ a {
 }
 
 /* ------------------- */
+
+.stock_display {
+    height: 340px;
+    overflow-y: scroll;
+    padding-bottom: 80px;
+}
+
 .stock {
     cursor: default;
 }
