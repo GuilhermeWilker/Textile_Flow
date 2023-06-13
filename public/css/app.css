@@ -357,7 +357,7 @@ a {
 }
 
 .income_list {
-    height: 185px;
+    height: 70vh;
     overflow-y: auto;
 
     padding-bottom: 120px;
