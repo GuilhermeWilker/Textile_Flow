@@ -18,7 +18,7 @@
         </p>
     @endif
 
-    <article class="actions_container">
+    <article class="stock_container">
         @foreach ($items as $item)
             <div class="action_box-item stock">
                 <p>

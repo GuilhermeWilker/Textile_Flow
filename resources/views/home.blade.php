@@ -34,7 +34,7 @@
         </header>
 
 
-        <article class="actions_container">
+        {{-- <article class="actions_container">
             @foreach ($items as $item)
                 <div class="action_box-item stock">
                     <p>
@@ -46,7 +46,7 @@
                     </span>
                 </div>
             @endforeach
-        </article>
+        </article> --}}
 
 
     </section>
