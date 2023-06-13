@@ -24,6 +24,4 @@ Route::post('/income', [IncomeController::class, 'store'])->name('income.store')
 
 Route::get('/stock', [StockController::class, 'index'])->name('stock');
 
-Route::get('/items/search', [StockController::class, 'search'])->name('items.search');
-
 Route::put('/stock/{id}', [StockController::class, 'update'])->name('stock.update');

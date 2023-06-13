@@ -8,22 +8,27 @@ use Illuminate\Support\Facades\Session;
 
 class StockController extends Controller
 {
-    public function search(Request $request)
-    {
-        $searchQuery = $request->input('searchBard');
-
-        $items = Item::where('itemName', 'LIKE', '%'.$searchQuery.'%')->get();
-    }
-
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $searchQuery = $request->input('searchBar');
+        $items = Item::orderByDesc('id');
+
+        if ($searchQuery) {
+            $items = $items->where('itemName', 'LIKE', '%'.$searchQuery.'%');
+        }
+
+        $items = $items->get();
+
+        $message = $items->isEmpty() ? 'Item não encontrado' : '';
+
         return view('stock', [
             'title' => 'Estoque',
-            'items' => Item::orderByDesc('id')->get(),
-            ]);
+            'items' => $items,
+            'message' => $message,
+        ]);
     }
 
     /**
