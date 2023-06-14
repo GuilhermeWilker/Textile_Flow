@@ -14,7 +14,7 @@ return new class() extends Migration {
             $table->id();
             $table->integer('itemQnt');
             $table->string('itemName');
-            $table->integer('itemPrice');
+            $table->decimal('itemPrice', 10, 2);
             $table->decimal('totalGains', 10, 2)->default(0.00);
             $table->decimal('totalExpenses', 10, 2)->default(0.00);
             $table->timestamps();

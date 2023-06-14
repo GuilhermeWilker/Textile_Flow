@@ -51,7 +51,7 @@
 
             <div>
                 <small><label for="itemPrice">Preço</label></small>
-                <input type="number" id="itemPrice" name="itemPrice" class="item_form-price" placeholder="R$ 15">
+                <input type="text" id="itemPrice" name="itemPrice" class="item_form-price" placeholder="R$ 15">
             </div>
         </div>
 
