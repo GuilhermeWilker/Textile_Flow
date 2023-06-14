@@ -14,15 +14,13 @@ class StockController extends Controller
     public function index(Request $request)
     {
         $searchQuery = $request->input('searchBar');
-        $items = Item::where('itemName', 'not like', '%salário%')->itemorderByDesc('id')->get();
+        $items = Item::where('itemName', 'not like', '%salário%')->orderByDesc('id')->get();
 
         if ($searchQuery) {
             $items = $items->where('itemName', 'LIKE', '%'.$searchQuery.'%');
         }
 
-        $items = $items->get();
-
-        $message = $items->isEmpty() ? 'Item não encontrado' : '';
+        $message = $items->isEmpty() ? 'Nenhum item foi encontrado' : '';
 
         return view('stock', [
             'title' => 'Estoque',
