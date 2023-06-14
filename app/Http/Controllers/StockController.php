@@ -14,7 +14,7 @@ class StockController extends Controller
     public function index(Request $request)
     {
         $searchQuery = $request->input('searchBar');
-        $items = Item::orderByDesc('id');
+        $items = Item::where('itemName', 'not like', '%salário%')->itemorderByDesc('id')->get();
 
         if ($searchQuery) {
             $items = $items->where('itemName', 'LIKE', '%'.$searchQuery.'%');
