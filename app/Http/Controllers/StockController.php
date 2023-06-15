@@ -16,9 +16,9 @@ class StockController extends Controller
         $searchQuery = $request->input('searchBar');
         $items = Item::where('itemName', 'not like', '%salário%')->orderByDesc('id')->get();
 
-        if ($searchQuery) {
-            $items = $items->where('itemName', 'LIKE', '%'.$searchQuery.'%');
-        }
+        $items = $searchQuery
+        ? $items->where('itemName', 'LIKE', '%'.$searchQuery.'%')
+        : $items;
 
         $message = $items->isEmpty() ? 'Nenhum item foi encontrado' : '';
 
@@ -64,18 +64,22 @@ class StockController extends Controller
     {
         $item = Item::findOrFail($id);
 
-        if ($request->input('action') === 'decrease') {
-            --$item->itemQnt;
-        } elseif ($request->input('action') === 'increase') {
-            ++$item->itemQnt;
-        }
+        $quantity = $item->itemQnt;
+        $lowStock = $quantity <= 2;
 
-        $lowStock = $item->itemQnt <= 2;
+        if ($request->input('action') === 'decrease') {
+            $quantity = ($quantity > 0)
+            ? ($quantity - 1)
+            : $quantity;
+        } elseif ($request->input('action') === 'increase') {
+            ++$quantity;
+        }
 
         if ($lowStock) {
             Session::flash('error', 'Estoque baixo');
         }
 
+        $item->itemQnt = $quantity;
         $item->save();
 
         if ($item->itemQnt === 0) {
